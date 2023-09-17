@@ -1,0 +1,66 @@
+﻿@page
+@model prc3Web3BerzerkCodes.Pages.Notas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].Nota1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].Nota2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].ExFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].NotaFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].Estudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].Asignatura)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Nota) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estudiante.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asignatura.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@page
+@model prc3Web3BerzerkCodes.Pages.Notas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Nota</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Nota.Id" />
+            <div class="form-group">
+                <label asp-for="Nota.Nota1" class="control-label"></label>
+                <input asp-for="Nota.Nota1" class="form-control" />
+                <span asp-validation-for="Nota.Nota1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nota.Nota2" class="control-label"></label>
+                <input asp-for="Nota.Nota2" class="form-control" />
+                <span asp-validation-for="Nota.Nota2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nota.ExFin" class="control-label"></label>
+                <input asp-for="Nota.ExFin" class="form-control" />
+                <span asp-validation-for="Nota.ExFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nota.NotaFinal" class="control-label"></label>
+                <input asp-for="Nota.NotaFinal" class="form-control" />
+                <span asp-validation-for="Nota.NotaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nota.EstudianteId" class="control-label"></label>
+                <select asp-for="Nota.EstudianteId" class="form-control" asp-items="ViewBag.EstudianteId"></select>
+                <span asp-validation-for="Nota.EstudianteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nota.AsignaturaId" class="control-label"></label>
+                <select asp-for="Nota.AsignaturaId" class="form-control" asp-items="ViewBag.AsignaturaId"></select>
+                <span asp-validation-for="Nota.AsignaturaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
